@@ -49,7 +49,7 @@ function addTerminalOutput(command){
     if(command == "hi" || command == "Hi" || command == "help"){
         let msg = "";
         if(command == "hi" || command == "Hi"){
-            msg = "Hi, "
+            msg = "Hi, t"
         }
         if(command == "help"){
             msg = "T";
@@ -101,9 +101,9 @@ function addTerminalOutput(command){
     if(command == "about"){
         document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
         "<div class=\"terminal-output\">" +
-        "Hi, i am Marko, i am from Belgrade, Serbia. I graduated Computer Science and currently working as Software Developer in Exela.<br>"+
-        "Before Exela i was part of the Engineering Ingegneria Informatica Spa group, as Junior Soultion Developer, Invej as System and Database Administrator. <br>" +
-        "and as part of internship i was Student Assistent and IT Technician at Singidunum University. <br><br>" +
+        "Hi, I am Marko, I am from Belgrade, Serbia. I graduated Computer Science and currently working as Software Developer in Exela.<br>"+
+        "Before Exela I was part of the Engineering Ingegneria Informatica Spa group, as Junior Soultion Developer, Invej as System and Database Administrator. <br>" +
+        "and as part of internship I was Student Assistent and IT Technician at Singidunum University. <br><br>" +
         "... " +
         "</div>");
         return;
