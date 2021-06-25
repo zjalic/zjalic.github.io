@@ -54,6 +54,10 @@ body {
     font-size: 100%;
 }
 
+.skills b {
+    color: #E35168;
+}
+
 a {
     color: #397F96;
 }
