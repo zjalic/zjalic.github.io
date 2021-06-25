@@ -4,7 +4,7 @@ function init(){
     // Add Terminal line after banner
     addTerminalInput();
     // Disabled right click
-    //document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('contextmenu', event => event.preventDefault());
 }
 var bannerI = 0;
 function banner() {
