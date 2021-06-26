@@ -4,14 +4,14 @@ function init(){
     // Add Terminal line after banner
     addTerminalInput();
     // Disabled right click
-    document.addEventListener('contextmenu', event => event.preventDefault());
+    //document.addEventListener('contextmenu', event => event.preventDefault());
 }
 var bannerI = 0;
 function banner() {
     var txt = "Hello, my name is Marko Zjalic. I have a Bachelor's degree in Computer Science\
         and I am currently working for a Exela Technologies as Software Developer. Type 'hi' for more."; 
   if (bannerI < txt.length) {
-    document.getElementById("banner").innerHTML += txt.charAt(bannerI);
+    document.getElementById("banner-left").innerHTML += txt.charAt(bannerI);
     bannerI++;
     setTimeout(banner, 20);
   }
@@ -65,6 +65,7 @@ function addTerminalOutput(command){
         "<b>cv</b> - View my cv in pdf format<br>" +
         "<b>contact</b> - Contact (Email,Github,LinkedIn)<br>" +
         "<b>clear</b> - Clear terminal/command line<br>" +
+        "<b>fullscreen</b> - Fullscreen or just press 'F11' button <br>" +
         "<b>help</b> - List of commands<br>" +
         "</div><br>");
         return;
@@ -103,11 +104,11 @@ function addTerminalOutput(command){
     if(command == "about"){
         document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
         "<div class=\"terminal-output\">" +
-        "Hi, I am Marko, I am from Belgrade, Serbia. I graduated Computer Science and currently working as Software Developer in Exela.<br>"+
+        "Hi, I am Marko, I live in Belgrade, Serbia. I graduated Computer Science and currently working as Software Developer in Exela.<br>"+
         "Before Exela I was part of the Engineering Ingegneria Informatica Spa group, as Junior Soultion Developer, Invej as System and Database Administrator. <br>" +
         "and as part of internship I was Student Assistent and IT Technician at Singidunum University. <br><br>" +
         "I like to create mini apps, if you need some kind of app and it will not take too much time please contact me ... <br>"+
-        "Also i enjoy in games, movies, music, food, cars, guns... Like the most man I guess... " +
+        "Also i enjoy in games, movies, music, food, cars, guns... Like the most boys, I guess... " +
         "</div>");
         return;
     }
@@ -132,7 +133,7 @@ function addTerminalOutput(command){
         spaces(4)+"Business Web App"  +spaces(1)+ " Java Spring w/ Liquibase and JSP w/ Tiles, Oracle<br>"+
         spaces(4)+"Bots & Scripts"    +spaces(3)+ " Python, SQLite <br>"+
         spaces(4)+"Mobile"            +spaces(11)+" Flutter <br><br>" +
-        "<b>Tools that helps me</b><br><br>" +
+        "<b>Tools that help me</b><br><br>" +
         spaces(4)+"IDE"             +spaces(14)+ " Eclipse & Netbeans <br>" +
         spaces(4)+"Editor"          +spaces(11)+ " VSCode <br>" +
         spaces(4)+"Version Control" +spaces(2) + " Git & SVN <br>" +
@@ -160,6 +161,18 @@ function addTerminalOutput(command){
         "</div>");
         return;
     }
+
+    if(command == "fullscreen"){
+        $("html")[0].requestFullscreen().then(function() {});
+        document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
+        "<div class=\"terminal-output\">" +
+        "Esc or 'F11' to exit fullscreen mode ..."+
+        "</div>");
+        return;
+    }
+
+
+
 
     document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
         "<div class=\"terminal-output\">'"+command+"': command not found</div>");
