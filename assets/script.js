@@ -1,17 +1,14 @@
 function init(){
-    // Typing effect on banner
     banner();
-    // Add Terminal line after banner
     addTerminalInput();
-    // Disabled right click
-    //document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('contextmenu', event => event.preventDefault());
 }
 var bannerI = 0;
 function banner() {
     var txt = "Hello, my name is Marko Zjalic. I have a Bachelor's degree in Computer Science\
         and I am currently working for a Exela Technologies as Software Developer. Type 'hi' for more."; 
   if (bannerI < txt.length) {
-    document.getElementById("banner-left").innerHTML += txt.charAt(bannerI);
+    document.getElementById("banner").innerHTML += txt.charAt(bannerI);
     bannerI++;
     setTimeout(banner, 20);
   }

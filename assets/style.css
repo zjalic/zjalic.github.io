@@ -17,7 +17,7 @@ body {
 }
 
 
-#banner-left {
+#banner {
     height: 70px;
     width: 60%;
     color: #BEE451;
@@ -60,9 +60,4 @@ body {
 
 a {
     color: #397F96;
-}
-
-img {
-    width: 100vw;
-    height: 100vh;
 }
