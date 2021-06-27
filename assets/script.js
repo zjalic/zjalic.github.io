@@ -93,7 +93,7 @@ function addTerminalOutput(command){
         window.open("./assets/cv.pdf");
         document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
         "<div class=\"terminal-output\">" +
-        "cv.pdf is opened in new tab." +
+        "<a href=\"./assets/cv.pdf\" target=\"_blank\" rel=\"noopener noreferrer\" >cv.pdf</a> is opened in new tab." +
         "</div>");
         return;
     }
