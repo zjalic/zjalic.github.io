@@ -19,9 +19,8 @@ function terminalCommand(command){
     addTerminalInput();
 }  
 
-function terminalAutocomplete(searchCommand){
-    addAutocomplete(searchCommand);
-    addTerminalInput();
+function terminalAutocomplete(element){
+    return addAutocomplete(element);
 }
 
 function addTerminalInput() {
@@ -45,12 +44,14 @@ function addTerminalInput() {
         if (e.key === 'Tab' || e.keyCode === 9) {
             e.preventDefault();
             var doc = $(".caret");
-            doc.attr('disabled', 'disabled');
-            doc.attr('class', 'caret-disabled');
-            terminalAutocomplete(doc.val());
+            var flag = terminalAutocomplete(doc);
+            if(flag){
+                doc.attr('disabled', 'disabled');
+                doc.attr('class', 'caret-disabled');
+                addTerminalInput();
+            }
         }
     });
-    
         
 }
 
@@ -184,16 +185,21 @@ function addTerminalOutput(command){
         return;
     }
 
-
     document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
         "<div class=\"terminal-output\">'"+command+"': command not found</div>");
 
-    
 }
 
-function addAutocomplete(searchCommand){
+function addAutocomplete(element){
+    var searchCommand = element.val();
     var autocompleteList = "";
 
+    if("hi".startsWith(searchCommand)){
+        autocompleteList += "hi ";
+    }
+    if("Hi".startsWith(searchCommand)){
+        autocompleteList += "Hi ";
+    }
     if("help".startsWith(searchCommand)){
         autocompleteList += "help ";
     }
@@ -231,13 +237,29 @@ function addAutocomplete(searchCommand){
         autocompleteList += "fullscreen ";
     }
     
+    var numberOfAutocomplete = (autocompleteList.match(/ /g)||[]).length;
 
+    if(numberOfAutocomplete > 1){
 
-    document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
-        "<div class=\"terminal-output\">" +
-        autocompleteList +
-        "</div>");
-        return;
+        document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
+            "<div class=\"terminal-output\">" +
+            autocompleteList +
+            "</div>");
+            return true;
+
+    } else if (numberOfAutocomplete == 1) {
+
+        element.val(autocompleteList.trim());
+        return false;
+
+    } else if (numberOfAutocomplete < 1) {
+
+        document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
+            "<div class=\"terminal-output\">" +
+            "no command starting with: " + searchCommand +
+            "</div>");
+            return true;
+    }
 }
 
 document.body.addEventListener("click", function (evt) {
