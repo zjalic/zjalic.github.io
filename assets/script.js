@@ -19,6 +19,11 @@ function terminalCommand(command){
     addTerminalInput();
 }  
 
+function terminalAutocomplete(searchCommand){
+    addAutocomplete(searchCommand);
+    addTerminalInput();
+}
+
 function addTerminalInput() {
     document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
         "<div class=\"terminal-input\"> > <input type=\"text\" class=\"caret\"" +
@@ -35,6 +40,17 @@ function addTerminalInput() {
             terminalCommand(doc.val());
         }
     });
+
+    $(".caret").on('keydown', function (e) {
+        if (e.key === 'Tab' || e.keyCode === 9) {
+            e.preventDefault();
+            var doc = $(".caret");
+            doc.attr('disabled', 'disabled');
+            doc.attr('class', 'caret-disabled');
+            terminalAutocomplete(doc.val());
+        }
+    });
+    
         
 }
 
@@ -56,7 +72,7 @@ function addTerminalOutput(command){
         msg + "ype any of following command for more info about me <br><br>" +
         "<b>about</b> -  More info about me<br>" +
         "<b>exp</b> - Info about my work experience<br>" +
-        "<b>education</b> - Info about my education<br>" +
+        "<b>edu</b> - Info about my education<br>" +
         "<b>tech</b> - Technologies that i use<br>" +
         "<b>skills</b> - Brief overview of my skills <br>" +
         "<b>cv</b> - View my cv in pdf format<br>" +
@@ -68,7 +84,7 @@ function addTerminalOutput(command){
         return;
     }
 
-    if(command == "education"){
+    if(command == "edu"){
         document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
         "<div class=\"terminal-output\"><br>" +
         "<b>Singidunum University - Bachelor of Science "       + spaces(8) +"2016 - 2020 "+spaces(2)+"(<a href=\"http:\/\/eng.singidunum.ac.rs\" target=\"_blank\" rel=\"noopener noreferrer\">link</a>) </b><br><br>" +
@@ -169,18 +185,67 @@ function addTerminalOutput(command){
     }
 
 
-
-
     document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
         "<div class=\"terminal-output\">'"+command+"': command not found</div>");
 
-
     
+}
+
+function addAutocomplete(searchCommand){
+    var autocompleteList = "";
+
+    if("help".startsWith(searchCommand)){
+        autocompleteList += "help ";
+    }
+    if("exp".startsWith(searchCommand)){
+        autocompleteList += "exp ";
+    }
+    if("edu".startsWith(searchCommand)){
+        autocompleteList += "edu ";
+    }
+    if("about".startsWith(searchCommand)){
+        autocompleteList += "about ";
+    }
+    if("skills".startsWith(searchCommand)){
+        autocompleteList += "skills ";
+    }
+    if("cv".startsWith(searchCommand)){
+        autocompleteList += "cv ";
+    }
+    if("this".startsWith(searchCommand)){
+        autocompleteList += "this ";
+    }
+    if("tech".startsWith(searchCommand)){
+        autocompleteList += "tech ";
+    }
+    if("contact".startsWith(searchCommand)){
+        autocompleteList += "contact ";
+    }
+    if("clear".startsWith(searchCommand)){
+        autocompleteList += "clear ";
+    }
+    if("cl".startsWith(searchCommand)){
+        autocompleteList += "cl ";
+    }
+    if("fullscreen".startsWith(searchCommand)){
+        autocompleteList += "fullscreen ";
+    }
+    
+
+
+    document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
+        "<div class=\"terminal-output\">" +
+        autocompleteList +
+        "</div>");
+        return;
 }
 
 document.body.addEventListener("click", function (evt) {
     $(".caret").focus();
 });
+
+
+
 
 function spaces(num){
     var spaceStr = "";
