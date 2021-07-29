@@ -163,7 +163,7 @@ function addTerminalOutput(command){
         "<b>Networking and System Administration</b> is something that i know pretty decent <br>" +
         "<b>Cryptography and Security</b> is something that i really like but there is plenty space for improvement <br>" +
         "My native is <b>Serbian</b>, but I am speaking also <b>English</b> it's not perfect but okay and a little bit <b>Italian</b><br>" +
-        "<b>Problem solving</b> is my best attribute. I am <b>Pragmatic</b> and <b>Idealistic</b> ...<br>" +
+        "<b>Problem solving</b> is my best attribute. I am <b>Pragmatic</b>...<br>" +
         "</div>");
         return;
     }
