@@ -119,10 +119,10 @@ function addTerminalOutput(command){
         document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
         "<div class=\"terminal-output\">" +
         "Hi, I am Marko, I live in Belgrade, Serbia. I graduated Computer Science and currently working as Software Developer in Exela.<br>"+
-        "Before Exela I was part of the Engineering Ingegneria Informatica Spa group, as Junior Soultion Developer, Invej as System and Database Administrator. <br>" +
+        "Before Exela I was part of the Engineering Ingegneria Informatica Spa group, as Junior Solution Developer, in Invej as System and Database Administrator. <br>" +
         "and as part of internship I was Student Assistent and IT Technician at Singidunum University. <br><br>" +
         "I like to create mini apps, if you need some kind of app and it will not take too much time please contact me ... <br>"+
-        "Also i enjoy in games, movies, music, food, cars, guns... Like the most boys, I guess... " +
+        "Also i enjoy in games, movies, music, food, cars ... Like the most boys, I guess... " +
         "</div>");
         return;
     }
