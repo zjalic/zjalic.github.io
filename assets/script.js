@@ -159,11 +159,10 @@ function addTerminalOutput(command){
     if(command == "skills"){
         document.getElementById("terminal-body").insertAdjacentHTML("beforeend",
         "<div class=\"terminal-output skills\">" +
-        "<b>Programming</b> is my current job, i like it but personal projects are more interesting<br>"+
-        "<b>Networking and System Administration</b> is something that i know pretty decent <br>" +
+        "<b>Networking and System Administration</b> is something that i know pretty decent beside <b>Programming</b> <br>" +
         "<b>Cryptography and Security</b> is something that i really like but there is plenty space for improvement <br>" +
         "My native is <b>Serbian</b>, but I am speaking also <b>English</b> it's not perfect but okay and a little bit <b>Italian</b><br>" +
-        "<b>Problem solving</b> is my best attribute. I am <b>Pragmatic</b>...<br>" +
+        "<b>Problem solving</b> and being <b>Pragmatic</b> is my best skills.<br>" +
         "</div>");
         return;
     }
