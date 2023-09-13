@@ -1,0 +1,63 @@
+body {
+    min-height: 80vh;
+    background-color: #171717;
+    margin-left: 3%;
+    margin-top: 3%;
+    color: #afafaf;
+    font-size: medium;
+    font-family: monospace;   
+    font-size: larger; 
+    
+
+    user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+}
+
+
+#banner {
+    height: 70px;
+    width: 60%;
+    color: #BEE451;
+}
+
+#terminal-body {
+    width: 100%;
+}
+
+.terminal-input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    
+    display:inline-block;
+}
+
+.terminal-output {
+    margin-left: 2%;
+    
+}
+
+.caret, .caret-disabled, .caret:focus {
+    background: transparent;
+    border: none;
+    outline-width: 0; 
+    outline: none;
+    outline-color: transparent;
+    box-shadow: none;
+    padding: none;
+    caret-color: #BEE451;
+    color: #BEE451;
+    font-family: monospace;   
+    font-size: 100%;
+}
+
+.skills b {
+    color: #E35168;
+}
+
+a {
+    color: #397F96;
+}
